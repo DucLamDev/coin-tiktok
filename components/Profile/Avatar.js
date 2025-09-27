@@ -15,9 +15,9 @@ const Avatar = ({ src, alt, className, fallback = '/default-avatar.png' }) => {
       } else if (src.startsWith('/uploads/avatars/')) {
         // Extract filename from /uploads/avatars/filename
         const filename = src.split('/').pop();
-        fullSrc = `http://localhost:5000/api/users/avatar/${filename}`;
+        fullSrc = `https://coin-tiktok-be.onrender.com/api/users/avatar/${filename}`;
       } else {
-        fullSrc = `http://localhost:5000${src}`;
+        fullSrc = `https://coin-tiktok-be.onrender.com${src}`;
       }
       setImgSrc(fullSrc);
       setHasError(false); // Reset error state when src changes

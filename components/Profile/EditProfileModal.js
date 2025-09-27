@@ -51,7 +51,7 @@ const EditProfileModal = ({ isOpen, onClose, user, onUpdate }) => {
          const response = await usersAPI.uploadAvatar(formData);
          if (response.data.success) {
            const avatarUrl = response.data.user.avatar;
-           setAvatarPreview(`http://localhost:5000${avatarUrl}`);
+           setAvatarPreview(`https://coin-tiktok-be.onrender.com${avatarUrl}`);
            setFormData(prev => ({
              ...prev,
              avatar: avatarUrl  // Lưu relative path trong formData
