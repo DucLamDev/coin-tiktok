@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 import { FiClock, FiCheck, FiX, FiRefreshCw } from 'react-icons/fi';
 import Layout from '../../components/Layout/Layout';
 import { coinsAPI } from '../../lib/api';
@@ -14,11 +15,7 @@ const TransactionsPage = () => {
     pages: 0
   });
 
-  useEffect(() => {
-    loadTransactions();
-  }, [pagination.page]);
-
-  const loadTransactions = async () => {
+  const loadTransactions = useCallback(async () => {
     setLoading(true);
     try {
       const response = await coinsAPI.getTransactions({
@@ -33,7 +30,11 @@ const TransactionsPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [pagination.page, pagination.limit]);
+
+  useEffect(() => {
+    loadTransactions();
+  }, [loadTransactions]);
 
   const getStatusIcon = (status) => {
     switch (status) {
@@ -117,12 +118,11 @@ const TransactionsPage = () => {
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2">No transactions yet</h3>
               <p className="text-gray-600 mb-4">Your transaction history will appear here once you make a purchase.</p>
-              <a
-                href="/coins"
-                className="inline-flex items-center px-4 py-2 bg-tiktok-red text-white rounded-md hover:bg-red-600 transition-colors"
-              >
-                Get Coins
-              </a>
+              <Link href="/coins">
+                <a className="inline-flex items-center px-4 py-2 bg-tiktok-red text-white rounded-md hover:bg-red-600 transition-colors">
+                  Get Coins
+                </a>
+              </Link>
             </div>
           ) : (
             <>

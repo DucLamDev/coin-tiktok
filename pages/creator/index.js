@@ -154,7 +154,7 @@ const CreatorToolsPage = () => {
                 </div>
                 <div className="flex-1">
                   <p className="font-medium text-gray-900">Milestone reached</p>
-                  <p className="text-sm text-gray-600">Congratulations! You've reached 1K followers</p>
+                  <p className="text-sm text-gray-600">Congratulations! You&apos;ve reached 1K followers</p>
                 </div>
                 <span className="text-sm text-gray-500">1 day ago</span>
               </div>

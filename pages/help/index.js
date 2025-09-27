@@ -173,7 +173,7 @@ const HelpPage = () => {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Still need help?</h2>
             <p className="text-gray-600 mb-6">
-              Can't find what you're looking for? Our support team is here to help you.
+              Can&apos;t find what you&apos;re looking for? Our support team is here to help you.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
