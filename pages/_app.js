@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, []); // Không cần dependency vì dùng event listener
+  }, [router, protectedRoutes, publicRoutes]);
 
   return <Component {...pageProps} />;
 }

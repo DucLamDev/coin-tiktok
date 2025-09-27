@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { FiBookmark, FiHeart, FiMessageCircle, FiShare, FiTrash2, FiSearch } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import Layout from '../../components/Layout/Layout';
@@ -85,7 +86,7 @@ const BookmarksPage = () => {
       setFilteredBookmarks(mockBookmarks);
       setLoading(false);
     }, 1000);
-  }, [router]);
+  }, [router, mockBookmarks]);
 
   useEffect(() => {
     if (searchQuery.trim()) {
@@ -199,10 +200,12 @@ const BookmarksPage = () => {
                 <div key={bookmark.id} className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                   {/* Video Thumbnail */}
                   <div className="relative aspect-[3/4] bg-gray-200">
-                    <img
+                    <Image
                       src={bookmark.thumbnail}
                       alt={bookmark.title}
-                      className="w-full h-full object-cover"
+                      layout="fill"
+                      className="object-cover"
+                      priority={index < 4} // Prioritize loading for the first few images
                     />
                     <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
                       {bookmark.duration}

@@ -4,6 +4,7 @@ import { FiUser, FiCopy, FiInfo } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import Layout from '../../components/Layout/Layout';
 import OrderSummaryModal from '../../components/Coins/OrderSummaryModal';
+import Image from 'next/image';
 import CustomAmountModal from '../../components/Coins/CustomAmountModal';
 import PaymentIcons from '../../components/Coins/PaymentIcons';
 import { coinsAPI } from '../../lib/api';
@@ -433,10 +434,11 @@ const CoinsPage = () => {
             <div className="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm">
               <div className="flex items-center space-x-4">
                 <div className="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center">
-                  <img 
+                  <Image 
                     src="https://sf16-sg.tiktokcdn.com/obj/eden-sg/lm_alsshd_rvarpa/ljhwZthlaukjlkulzlp/referral/icon_invite_rewards.png" 
                     alt="Invite Rewards" 
-                    className="w-8 h-8"
+                    width={32}
+                    height={32}
                   />
                 </div>
                 <div>
