@@ -198,3 +198,85 @@ select {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
 }
+
+/* Custom Amount Modal Styles */
+.custom-amount-display {
+  color: #000000 !important;
+}
+
+.dark .custom-amount-display {
+  color: #ffffff !important;
+}
+
+/* Ensure keypad buttons are visible in dark mode */
+.dark .bg-gray-200 {
+  background-color: #374151 !important; /* gray-700 */
+}
+
+.dark .bg-gray-200:hover {
+  background-color: #4b5563 !important; /* gray-600 */
+}
+
+.dark .bg-gray-100 {
+  background-color: #1f2937 !important; /* gray-800 */
+}
+
+/* Mobile-specific fixes for custom amount input */
+@media (max-width: 768px) {
+  /* Force text color on mobile */
+  .custom-amount-display,
+  .custom-amount-display span {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+  
+  /* Force background and text color on mobile inputs */
+  input[type="number"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="number"]:focus,
+  input[type="tel"]:focus,
+  input[type="text"]:focus {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    caret-color: #000000 !important;
+  }
+  
+  /* Fix for iOS input zoom and styling */
+  @supports (-webkit-touch-callout: none) {
+    input[type="number"],
+    input[type="tel"],
+    input[type="text"] {
+      font-size: 16px !important; /* Prevent iOS zoom */
+      border-radius: 0; /* Remove iOS border radius */
+      -webkit-border-radius: 0px;
+    }
+    
+    /* Force background on autofill */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px white inset !important;
+      -webkit-text-fill-color: #000000 !important;
+    }
+  }
+  
+  /* Ensure modal content is visible on mobile */
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+}
